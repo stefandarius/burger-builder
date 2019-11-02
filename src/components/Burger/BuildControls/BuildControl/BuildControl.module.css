@@ -54,3 +54,10 @@
     background-color: #99703F;
     color: white;
 }
+
+.Quantity {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
+    color: white;
+}
