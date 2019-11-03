@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Auxiliary from "../../hoc/Auxiliary";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
+import Modal from "../../components/UI/Modal/Modal";
 
 const INGREDIENT_PRICE = {
   salad: 0.3,
@@ -18,8 +19,19 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 4
+    totalPrice: 4,
+    purchasable: false
   };
+
+  updatePurchaseState = (ingredients) => {
+    const sum = Object.keys(ingredients)
+      .map(igKey => {
+        return ingredients[igKey];
+      }).reduce((sum, el) => {
+          return sum + el;
+      }, 0);
+      this.setState({purchasable: sum > 0});
+  }
 
   addIngredientHandler = type => {
     const updatedIngredients = {
@@ -28,6 +40,7 @@ class BurgerBuilder extends Component {
     updatedIngredients[type] = this.state.ingredients[type] + 1;
     const newPrice = this.state.totalPrice + INGREDIENT_PRICE[type];
     this.setState({ ingredients: updatedIngredients, totalPrice: newPrice });
+    this.updatePurchaseState(updatedIngredients);
   };
 
   removeIngredientHandler = type => {
@@ -39,6 +52,7 @@ class BurgerBuilder extends Component {
       updatedIngredients[type] = updatedCount;
       const newPrice = this.state.totalPrice - INGREDIENT_PRICE[type];
       this.setState({ ingredients: updatedIngredients, totalPrice: newPrice });
+      this.updatePurchaseState(updatedIngredients);
     }
   };
 
@@ -53,11 +67,13 @@ class BurgerBuilder extends Component {
 
     return (
       <Auxiliary>
+        <Modal/>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls  
           ingredientAdded = {this.addIngredientHandler}
           ingredientRemoved = {this.removeIngredientHandler}
           disabled = {disabledInfo}
+          orderDisabled = {this.state.purchasable}
           number = {this.state.ingredients}
           price = {this.state.totalPrice} />
       </Auxiliary>

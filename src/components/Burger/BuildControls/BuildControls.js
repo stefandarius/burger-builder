@@ -20,6 +20,10 @@ const buildControls = (props) => (
                 disabled = {props.disabled[ctrl.type]} 
                 number = {props.number[ctrl.type]} />
         ))}
+        <button className = {classes.OrderButton}
+            disabled = {!props.orderDisabled}>
+            ORDER NOW
+        </button>
     </div>
 );
 
