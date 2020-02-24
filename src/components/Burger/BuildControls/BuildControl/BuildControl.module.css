@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 5px 0;
+    padding-top: 5px;
 }
 
 .BuildControl button {
@@ -30,34 +31,34 @@
 }
 
 .Label {
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
     width: 80px;
 }
 
 .BuildControl .Less {  
-    background-color: #D39952;
+    background-color: #e33014;
     color: white;
 }
 
 .BuildControl .More {
-    background-color: #8F5E1E;
+    background-color: #10c23c;
     color: white;
 }
 
 .BuildControl .Less:hover, .BuildControl .Less:active {  
-    background-color: #DAA972;
+    background-color: #f55c45;
     color: white;
 }
 
 .BuildControl .More:hover,.BuildControl .More:active {
-    background-color: #99703F;
+    background-color: #2adb74;
     color: white;
 }
 
 .Quantity {
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
-    width: 80px;
+    width: auto;
     color: white;
 }

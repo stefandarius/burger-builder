@@ -22,6 +22,7 @@ const buildControls = props => (
         removed={() => props.ingredientRemoved(ctrl.type)}
         disabled={props.disabled[ctrl.type]}
         number={props.number[ctrl.type]}
+        individualPrice={props.individualPrice[ctrl.type].toFixed(2)}
       />
     ))}
     <button

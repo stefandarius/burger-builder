@@ -114,7 +114,7 @@ class BurgerBuilder extends Component {
     }
 
     let orderSummary = null;
-    let burger = this.state.error ? <p>Ingredients can't be loaded</p> : <Spinner/>
+    let burger = this.state.error ? <p>Ingredients can't be loaded</p> : <Spinner/>;
 
     if(this.state.ingredients) {
       burger = (
@@ -128,6 +128,7 @@ class BurgerBuilder extends Component {
             number={this.state.ingredients}
             price={this.state.totalPrice}
             purchasing={this.purchaseHandler}
+            individualPrice={INGREDIENT_PRICE}
           />
         </Auxiliary>
       );

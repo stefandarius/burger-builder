@@ -6,7 +6,7 @@
 }
 
 .NavigationItem a {
-  color: #8f5c2c;
+  color: #6c99d4;
   text-decoration: none;
   padding: 16px 10px;
   box-sizing: border-box;
@@ -38,8 +38,8 @@
     .NavigationItem a:hover,
     .NavigationItem a:active,
     .NavigationItem a.active {
-      background-color: #8f5c2c;
-      border-bottom: 4px solid #4084c8;
+      background-color: #6c99d4;
+      border-bottom: 4px solid #14e35d;
       color: white;
     }
   }
