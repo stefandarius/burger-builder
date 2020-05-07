@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './Ingredient.module.css';
 import PropTyes from 'prop-types';
 
-class Ingredient extends Component {
-  render() {
+const Ingredient = props => {
     let ingr = null;
 
-    switch (this.props.type) {
+    switch (props.type) {
       case ('bread-bottom'):
         ingr = <div className = {classes.BreadBottom}></div>
         break;
@@ -35,8 +34,7 @@ class Ingredient extends Component {
     }
 
     return ingr;
-  }
-}
+};
 
 Ingredient.propTyes = {
   type: PropTyes.string.isRequired
